@@ -2,6 +2,11 @@ $(call inherit-product, device/motorola/vanquish-common/device.mk)
 
 LOCAL_PATH := device/motorola/xt926dev
 
+PRODUCT_LOCALES := en_US
+PRODUCT_LOCALES += xhdpi
+PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
+
 PRODUCT_PROPERTY_OVERRIDES += \
 	telephony.lteOnCdmaDevice=1 \
 	ro.config.svlte1x=true \
