@@ -32,4 +32,4 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/kernelmodules/cfg80211.ko:system/lib/modules/prima/cfg80211.ko \
     $(LOCAL_PATH)/kernelmodules/prima_wlan.ko:system/lib/modules/prima/prima_wlan.ko
 
-$(call inherit-product-if-exists, vendor/motorola/xt926dev/xt926dev-vendor.mk)
+$(call inherit-product-if-exists, vendor/motorola/xt926/xt926-vendor.mk)
