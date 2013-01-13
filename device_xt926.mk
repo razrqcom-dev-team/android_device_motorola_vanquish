@@ -1,6 +1,6 @@
 $(call inherit-product, device/motorola/vanquish-common/device.mk)
 
-LOCAL_PATH := device/motorola/xt926dev
+LOCAL_PATH := device/motorola/xt926
 
 PRODUCT_LOCALES := en_US
 PRODUCT_LOCALES += xhdpi
