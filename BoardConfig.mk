@@ -8,11 +8,8 @@ LOCAL_PATH := device/motorola/xt926
 # Inline kernel building
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8960-common
 TARGET_KERNEL_CONFIG := msm8960_mmi_defconfig
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
-else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
+TARGET_PREBUILT_KERNEL := device/motorola/xt926/kernel
+
 # copy all kernel modules under the "kerne/modules" directory to system/lib/modules
 PRODUCT_COPY_FILES += $(shell \
 	find $(LOCAL_PATH)/kernel/modules -name '*.ko' 2> /dev/null \
@@ -23,6 +20,8 @@ BOARD_KERNEL_CMDLINE := console=/dev/null androidboot.hardware=qcom user_debug=3
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01600000
+#backwards compat for 4.1 (making recoveries)
+BOARD_FORCE_RAMDISK_ADDRESS := 0x81600000
 
 #bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
