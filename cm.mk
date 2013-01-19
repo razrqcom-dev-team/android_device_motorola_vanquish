@@ -9,7 +9,7 @@ TARGET_SCREEN_HEIGHT := 1280
 
 # Release name
 PRODUCT_RELEASE_NAME := xt926
-PRODUCT_NAME := cm_otter
+PRODUCT_NAME := cm_xt926
 
 $(call inherit-product, device/motorola/xt926/full_xt926.mk)
 
