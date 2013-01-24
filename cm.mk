@@ -13,4 +13,4 @@ PRODUCT_NAME := cm_xt926
 
 $(call inherit-product, device/motorola/xt926/full_xt926.mk)
 
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_BRAND=motorola PRODUCT_NAME=xt926 BUILD_PRODUCT=xt926 BUILD_FINGERPRINT=motorola/xt926/vanquish:4.0.4/7.7.1Q-144_VQW_S3-34:user/release-keys
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_BRAND=motorola PRODUCT_NAME=xt926 BUILD_PRODUCT=xt926 BUILD_FINGERPRINT=motorola/XT926_verizon/vanquish:4.1.1/9.8.1Q_37/39:user/release-keys
