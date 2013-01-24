@@ -17,6 +17,8 @@ on init
     mkdir /system
     mkdir /data
     mkdir /cache
+    mkdir /modem
+    mkdir /logo
     mount /tmp /tmp tmpfs
 
 on boot
