@@ -8,6 +8,9 @@ else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
+# xt926 specific overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay/aosp
+
 PRODUCT_LOCALES := en_US
 PRODUCT_LOCALES += xhdpi
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
@@ -47,5 +50,4 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/kernelmodules/cfg80211.ko:system/lib/modules/prima/cfg80211.ko \
     $(LOCAL_PATH)/kernelmodules/prima_wlan.ko:system/lib/modules/prima/prima_wlan.ko
 
-$(call inherit-product, vendor/cm/config/cdma.mk)
 $(call inherit-product-if-exists, vendor/motorola/xt926/xt926-vendor.mk)
