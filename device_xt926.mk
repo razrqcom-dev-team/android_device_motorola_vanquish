@@ -33,6 +33,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.radio.0x9e_not_callname=1 \
 	persist.radio.skip_data_check=1 \
 	persist.ril.max.crit.qmi.fails=4 \
+	ro.cdma.home.operator.numeric=310004 \
+	ro.cdma.home.operator.alpha=Verizon \
+	ro.cdma.homesystem=64,65,76,77,78,79,80,81,82,83 \
+	ro.telephony.default_network=10 \
+	ro.mot.ignore_csim_appid=true
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/config/gps.conf:system/etc/gps.conf \
@@ -42,4 +47,5 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/kernelmodules/cfg80211.ko:system/lib/modules/prima/cfg80211.ko \
     $(LOCAL_PATH)/kernelmodules/prima_wlan.ko:system/lib/modules/prima/prima_wlan.ko
 
+$(call inherit-product, vendor/cm/config/cdma.mk)
 $(call inherit-product-if-exists, vendor/motorola/xt926/xt926-vendor.mk)
