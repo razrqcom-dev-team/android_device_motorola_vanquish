@@ -43,11 +43,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.mot.ignore_csim_appid=true
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/config/gps.conf:system/etc/gps.conf \
-
-#safestrap support
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/kernelmodules/cfg80211.ko:system/lib/modules/prima/cfg80211.ko \
-    $(LOCAL_PATH)/kernelmodules/prima_wlan.ko:system/lib/modules/prima/prima_wlan.ko
+	$(LOCAL_PATH)/config/gps.conf:system/etc/gps.conf
 
 $(call inherit-product-if-exists, vendor/motorola/xt926/xt926-vendor.mk)
