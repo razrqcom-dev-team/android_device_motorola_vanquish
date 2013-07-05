@@ -53,9 +53,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.cdma.subscribe_on_ruim_ready=true \
 	persist.timed.enable=true
 
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/config/gps.conf:system/etc/gps.conf
-
 $(call inherit-product, device/motorola/msm8960-common/idc/idc.mk)
 $(call inherit-product, device/motorola/msm8960-common/keychars/keychars.mk)
 $(call inherit-product, device/motorola/msm8960-common/keylayout/keylayout.mk)
