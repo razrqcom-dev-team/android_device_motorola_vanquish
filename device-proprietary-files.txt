@@ -24,8 +24,6 @@ etc/firmware/modem_fw.b02
 etc/firmware/modem_fw.b03
 etc/firmware/modem_fw.b04
 etc/firmware/modem_fw.b05
-etc/firmware/modem_fw.b06
-etc/firmware/modem_fw.b07
 etc/firmware/modem_fw.b08
 etc/firmware/modem_fw.b09
 etc/firmware/modem_fw.b10
