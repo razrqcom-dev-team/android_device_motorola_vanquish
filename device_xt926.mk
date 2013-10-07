@@ -20,6 +20,10 @@ PRODUCT_LOCALES += xhdpi
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
+# Nfc
+PRODUCT_PACKAGES += \
+    nfc.msm8960
+
 # Stk
 PRODUCT_PACKAGES += \
     Stk
