@@ -1,6 +1,7 @@
 # proprietary file list
 # bin/filename
-
+lib/libqmiservices.so
+lib/libril-qc-qmi-1.so
 etc/firmware/apps.mbn
 etc/firmware/dsps.b01
 etc/firmware/dsps.b02
