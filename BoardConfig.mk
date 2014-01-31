@@ -24,9 +24,13 @@
 -include device/motorola/msm8960-common/BoardConfigCommon.mk
 
 # inherit from the proprietary version
--include vendor/motorola/xt926/BoardConfigVendor.mk
+-include vendor/motorola/vanquish/BoardConfigVendor.mk
 
-LOCAL_PATH := device/motorola/xt926
+LOCAL_PATH := device/motorola/vanquish
+
+# Vendor Init
+TARGET_INIT_VENDOR_LIB := libinit_msm
+TARGET_LIBINIT_DEFINES_FILE := device/motorola/vanquish/init/init_vanquish.c
 
 # Use common resources
 TARGET_USES_MOTOROLA_MSM8960_COMMON_LIBLIGHT := true

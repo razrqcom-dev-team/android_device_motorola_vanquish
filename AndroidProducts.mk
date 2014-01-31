@@ -14,4 +14,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/full_xt926.mk
+    $(LOCAL_DIR)/full_vanquish.mk

@@ -2,6 +2,6 @@
 
 
 export VENDOR=motorola
-export DEVICE=xt926
+export DEVICE=vanquish
 
 ../msm8960-common/extract-files.sh $@
