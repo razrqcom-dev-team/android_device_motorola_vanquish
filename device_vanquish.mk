@@ -10,9 +10,8 @@ LOCAL_PATH := device/motorola/vanquish
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 PRODUCT_LOCALES := en_US
-PRODUCT_LOCALES += xhdpi
+PRODUCT_LOCALES += hdpi xhdpi
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
-PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Use common media profile
 TARGET_USES_MOTOROLA_MSM8960_COMMON_MEDIA_PROFILES := true
@@ -25,9 +24,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Stk
 
-# QCOM Display
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=320
+# XT90x recovery
+PRODUCT_COPY_FILES += \
+    device/motorola/qcom-common/idc/atmxt-i2c.idc:recovery/root/vendor/firmware/atmxt-i2c.idc \
+    vendor/motorola/vanquish/proprietary/etc/firmware/atmxt-r2.tdat:recovery/root/vendor/firmware/atmxt-r2.tdat
 
 # LTE, CDMA, GSM/WCDMA
 PRODUCT_PROPERTY_OVERRIDES += \

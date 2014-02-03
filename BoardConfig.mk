@@ -38,11 +38,15 @@ TARGET_USES_MOTOROLA_MSM8960_COMMON_LIBLIGHT := true
 # NFC
 BOARD_HAVE_NFC := true
 
-#bluetooth
+# Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
-#TWRP
+# TWRP for HD devices/ Needs to be changed for M
 DEVICE_RESOLUTION := 720x1280
+#DEVICE_RESOLUTION := 540x960
 
-# userdata size is double for maxx
+# Userdata size is double for maxx
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12884901888
+
+# Custom relese tools for unified devices
+TARGET_RELEASETOOLS_EXTENSIONS := device/motorola/vanquish
