@@ -22,3 +22,7 @@ def FullOTA_InstallEnd(info):
 	info.script.AppendExtra('delete("/system/etc/media_profiles_xt90x.xml");')
 	info.script.AppendExtra('ifelse(is_substring("sprint", getprop("ro.boot.carrier")), run_program("/sbin/sh", "-c", "busybox cp -R /system/lib_xt897/* /system/lib"));')
 	info.script.AppendExtra('delete_recursive("/system/lib_xt897");')
+	info.script.AppendExtra('ifelse(is_substring("240", getprop("ro.sf.lcd_density")), run_program("/sbin/sh", "-c", "busybox mv /system/media/540.zip /system/media/bootanimation.zip"));')
+	info.script.AppendExtra('delete("/system/media/540.zip");')
+	info.script.AppendExtra('ifelse(is_substring("XT901", getprop("ro.boot.modelno")), run_program("/sbin/sh", "-c", "busybox cp -R /system/lib_xt901/* /system/lib"));')
+	info.script.AppendExtra('delete_recursive("/system/lib_xt901");')
