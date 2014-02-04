@@ -35,9 +35,6 @@ TARGET_LIBINIT_DEFINES_FILE := device/motorola/vanquish/init/init_vanquish.c
 # Use common resources
 TARGET_USES_MOTOROLA_MSM8960_COMMON_LIBLIGHT := true
 
-# NFC
-BOARD_HAVE_NFC := true
-
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 

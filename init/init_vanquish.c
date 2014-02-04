@@ -73,7 +73,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
     } else if (ISMATCH(modelno, "MB886")) {
         property_set("ro.product.device", "qinara");
         property_set("ro.product.model", "ATRIX HD");
-        property_set("ro.build.description", "XMB886_niimx-user 4.1.2 9.8.2Q-50_MB886_NII_TA-2 16 release-keys");
+        property_set("ro.build.description", "MB886_niimx-user 4.1.2 9.8.2Q-50_MB886_NII_TA-2 16 release-keys");
         property_set("ro.build.fingerprint", "motorola/MB886_niimx/qinara:4.1.2/9.8.2Q-50_MB886_NII_TA-2/16:user/release-keys");
         property_set("ro.sf.lcd_density", "320");
         property_set("ro.mot.build.customerid ", "nii");

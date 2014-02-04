@@ -24,6 +24,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Stk
 
+# Copy over the media_profiles for xt90x
+PRODUCT_COPY_FILES += \
+$(LOCAL_PATH)/media_profiles_xt90x.xml:system/etc/media_profiles_xt90x.xml
+
 # XT90x recovery
 PRODUCT_COPY_FILES += \
     device/motorola/qcom-common/idc/atmxt-i2c.idc:recovery/root/vendor/firmware/atmxt-i2c.idc \
