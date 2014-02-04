@@ -28,6 +28,7 @@
  */
 
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
@@ -43,6 +44,8 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
     char device[PROP_VALUE_MAX];
     char devicename[PROP_VALUE_MAX];
     char modelno[PROP_VALUE_MAX];
+    char hardware_variant[92];
+    FILE *fp;
     int rc;
 
     UNUSED(msm_id);
@@ -55,14 +58,17 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 
     property_get("ro.boot.modelno", modelno);
     property_get("ro.boot.carrier", carrier);
-    if ((ISMATCH(modelno, "")) && (ISMATCH(carrier, "vzw"))) {
+    fp = popen("/system/xbin/sed -n '/Hardware/,/Revision/p' /proc/cpuinfo | /system/xbin/cut -d ':' -f2 | /system/xbin/head -1", "r");
+    fgets(hardware_variant, sizeof(hardware_variant), fp);
+    pclose(fp);
+    if ((strstr(hardware_variant, "Vanquish")) && (ISMATCH(carrier, "vzw"))) {
         /* xt926 */
         property_set("ro.product.device", "vanquish");
         property_set("ro.product.model", "DROID RAZR HD");
         property_set("ro.build.description", "vanquish_vzw-user 4.1.2 9.8.1Q-62_VQW_MR-2 6 release-keys");
         property_set("ro.build.fingerprint", "motorola/XT926_verizon/vanquish:4.1.2/9.8.1Q-62_VQW_MR-2/6:user/release-keys");
         property_set("ro.sf.lcd_density", "320");
-    } else if ((ISMATCH(modelno, "")) && (!ISMATCH(carrier, "vzw"))) {
+    } else if ((strstr(hardware_variant, "Vanquish")) && (!ISMATCH(carrier, "vzw"))) {
         /* xt925 */
         property_set("ro.product.device", "vanquish_u");
         property_set("ro.product.model", "RAZR HD");
@@ -91,7 +97,8 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.build.description", "smq_u_ird-user 4.1.2 9.8.2Q_SMUIRD-7 1357751068 release-keys");
         property_set("ro.build.fingerprint", "motorola/XT905_RTAU/smq_u:4.1.2/9.8.2Q_SMUIRD-7/1357751068:user/release-keys");
         property_set("ro.sf.lcd_density", "240");
-    } else if ((ISMATCH(modelno, "XT907")) || ((strstr(modelno, "XT90")) && (ISMATCH(carrier, "vzw")))) {
+    } else if (((strstr(hardware_variant, "msm8960dt")) && (ISMATCH(carrier, "vzw")))) {
+        /* xt907 */
 		property_set("ro.product.device", "scorpion_mini");
         property_set("ro.product.model", "DROID RAZR M");
         property_set("ro.build.description", "smq_vzw-user 4.1.2 9.8.1Q-94-1 77 release-keys");
@@ -139,5 +146,5 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 
     property_get("ro.product.device", device);
     strlcpy(devicename, device, sizeof(devicename));
-    ERROR("Found carrier id %s and model no %s setting build properties for %s device\n", carrier, modelno, devicename);
+    ERROR("Found carrier id: %s hardware:%s model no: %s: setting build properties for %s device\n", carrier, hardware_variant, modelno, devicename);
 }
