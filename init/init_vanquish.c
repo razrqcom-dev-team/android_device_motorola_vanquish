@@ -85,7 +85,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.mot.build.customerid ", "nii");
         property_set("telephony.lteOnGsmDevice", "1");
     } else if (ISMATCH(modelno, "XT901")) {
-		property_set("ro.product.device", "solstice");
+        property_set("ro.product.device", "solstice");
         property_set("ro.product.model", "ELECTRIFY M");
         property_set("ro.build.description", "solstice-user 4.1.2 9.8.2Q-50_SLS-13 44 release-keys");
         property_set("ro.build.fingerprint", "motorola/XT901_usc/solstice:4.1.2/9.8.2Q-50_SLS-13/44:user/release-keys");
@@ -99,7 +99,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.sf.lcd_density", "240");
     } else if (((strstr(hardware_variant, "msm8960dt")) && (ISMATCH(carrier, "vzw")))) {
         /* xt907 */
-		property_set("ro.product.device", "scorpion_mini");
+        property_set("ro.product.device", "scorpion_mini");
         property_set("ro.product.model", "DROID RAZR M");
         property_set("ro.build.description", "smq_vzw-user 4.1.2 9.8.1Q-94-1 77 release-keys");
         property_set("ro.build.fingerprint", "motorola/XT907_verizon/scorpion_mini:4.1.2/9.8.1Q-94-1/77:user/release-keys");
@@ -142,9 +142,31 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.cdma.home.operator.numeric", "311220");
         property_set("telephony.rilV7NeedCDMALTEPhone", "true");
         property_set("ro.cdma.subscribe_on_ruim_ready", "true");
+    } else if ((ISMATCH(carrier, "sprint")) || (strstr(hardware_variant, "Asanti"))) {
+        /* xt897 */
+        property_set("ro.product.device", "asanti_c");
+        property_set("ro.product.model", "PHOTON Q");
+        property_set("ro.build.description", "XT897_us_spr-user 4.1.2 9.8.2Q-122_XT897_FFW-5 6 release-keys");
+        property_set("ro.build.fingerprint", "motorola/XT897_us_spr/asanti_c:4.1.2/9.8.2Q-122_XT897_FFW-5/6:user/release-keys");
+        property_set("ro.sf.lcd_density", "240");
+        property_set("ro.config.svdo", "true");
+        property_set("ro.config.svlte1x", "true");
+        property_set("ro.telephony.gsm-routes-us-smsc", "1");
+        property_set("ro.cdma.nbpcd", "0");
+        property_set("ro.cdma.home.operator.isnan", "1");
+        property_set("ro.cdma.otaspnumschema", "SELC,1,80,99");
+        property_set("persist.radio.vrte_logic", "2");
+        property_set("persist.radio.skip_data_check", "1");
+        property_set("persist.ril.max.crit.qmi.fails", "4");
+        property_set("ro.cdma.home.operator.alpha", "Sprint");
+        property_set("ro.cdma.home.operator.numeric", "310120");
+        property_set("rro.cdma.subscription", "1");
+        property_set("DEVICE_PROVISIONED", "1");
+        property_set("persist.sys.report_gprs_as_edge", "1");
+        property_set("ro.mot.ignore_csim_appid", "true");
     }
 
     property_get("ro.product.device", device);
     strlcpy(devicename, device, sizeof(devicename));
-    ERROR("Found carrier id: %s hardware:%s model no: %s: setting build properties for %s device\n", carrier, hardware_variant, modelno, devicename);
+    ERROR("Found carrier id: %s hardware:%s model no: %s Setting build properties for %s device\n", carrier, hardware_variant, modelno, devicename);
 }
